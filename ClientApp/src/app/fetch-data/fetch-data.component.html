@@ -1,0 +1,53 @@
+<h1 id="tableLabel">Weather forecast</h1>
+
+<p>This component demonstrates fetching data from the server.</p>
+
+<p *ngIf="!forecasts"><em>Loading...</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="forecasts">
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Temp. (C)</th>
+      <th>Temp. (F)</th>
+      <th>Summary</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let forecast of forecasts">
+      <td>{{ forecast.date }}</td>
+      <td>{{ forecast.temperatureC }}</td>
+      <td>{{ forecast.temperatureF }}</td>
+      <td>{{ forecast.summary }}</td>
+    </tr>
+  </tbody>
+</table>
+<strong>Enter the string to find occurence of a character</strong><br>
+<textarea type="text" class="md-textarea form-control" [(ngModel)] ="myCountInput" placeholder="Please enter string"></textarea>
+<input type="button" (click) = 'GetCountOfCharacters()' value="Find Occurence">
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="characterCount">
+  <thead>
+    <tr>
+      <th>Character</th>
+      <th>Count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of characterCount">
+      <td>{{ item.character }}</td>
+      <td>{{ item.count }}</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<br>
+
+<strong>Enter the string to find reverese of each word</strong><br>
+<textarea type="text" class="md-textarea form-control" [(ngModel)] ="myReverseInput" placeholder="Please enter string"></textarea>
+<input type="button" (click) = 'getReversedString()' value="Find Reverse"><br>
+<p *ngIf="reveresedString">{{reveresedString}}</p><br>
+
+<strong>Enter paragraph to avoid duplicates:</strong><br>
+<textarea type="text" class="md-textarea form-control" [(ngModel)] = "myDuplicateInput" placeholder="Please enter string" ></textarea>
+<input type="button" value="Find Duplicate" (click) = avoidDuplicate()>
+<p *ngIf="distinctString">{{distinctString}}</p><br>
